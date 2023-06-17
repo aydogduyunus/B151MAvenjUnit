@@ -10,33 +10,36 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.List;
 
+
 public class C01_MavenIlkTest {
+
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        //https://www.amazon.com/ sayfasina gidelim
-        driver.get("https://amazon.com");
+        WebDriver myDriver = new ChromeDriver();
+        myDriver.manage().window().maximize();
+        myDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        myDriver.get("https://amazon.com");
 
-        //arama kutusunu locate edelim
-        WebElement aramaKutusu = driver.findElement(By.cssSelector("input#twotabsearchtextbox"));
+        //arama kutusunu locate edelim.
+        WebElement aramaKutusu = myDriver.findElement(By.cssSelector("input#twotabsearchtextbox"));
 
-        //“Samsung headphones” ile arama yapalim
+        //"Samsung headphones" ile arama yapalım.
         aramaKutusu.sendKeys("Samsung headphones", Keys.ENTER);
 
-        //Bulunan sonuc sayisini yazdiralim
-        WebElement sonucYazisi = driver.findElement(By.xpath("(//*[@class='sg-col-inner'])[1]"));
-        //1-16 of 201 results for "Samsung headphones"
-        String [] sonucSayisi = sonucYazisi.getText().split(" ");
-        System.out.println("Sonuc Sayisi = "+sonucSayisi[2]);
+        //Bulunan sonuc sayısını yazdıralım.
+        WebElement sonuc = myDriver.findElement(By.xpath("(//*[@class='sg-col-inner'])[1]"));
+        //1-16 of 199 results for "Samsung headphones"
 
-        //Ilk urunu tiklayalim
-        driver.findElement(By.xpath("(//h2//a)[1]")).click();
+        String sonucYazisi = sonuc.getText();
+        String[] arr = sonucYazisi.split(" ");
+        System.out.println("Sonuc Sayısı= " + arr[2]);
 
-        //Sayfadaki tum basliklari yazdiralim
-        List<WebElement> sayfaBasliklari = driver.findElements(By.xpath("//h1 | //h2"));
-        sayfaBasliklari.forEach(t-> System.out.println(t.getText()));
+        //ilk ürünü tıklayalım
+        myDriver.findElement(By.xpath("(//*[@class='s-image'])[1]")).click();
+
+        //Sayfadaki Tüm Basliklari Yazdiralim           !!!!!!!çoooook işime yarar!!!!!!!!!
+        List<WebElement> sayfaBasliklari = myDriver.findElements(By.xpath("//h1|//h2|//h3|//h4|//h5|//h6"));
+        sayfaBasliklari.forEach(t -> System.out.println(t.getText()));
 
     }
 }
