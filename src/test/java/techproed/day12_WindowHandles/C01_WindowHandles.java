@@ -35,7 +35,7 @@ public class C01_WindowHandles extends TestBase {
         /*
             Bir button'a click yaptığımızda kontrolümüz dışında yeni bir sekme yada pencere açılırsa
          yeni açılan pencerenin handle değerini bilmediğim için normal getWindowHandle ile driver'imi yeni pencere
-         geçiremem. Bunu getWindowHandles() methoduyla açılan tüm pencereleri bir Set'e assign edip, ilkaçtiğimiz
+         geçiremem. Bunu getWindowHandles() methoduyla açılan tüm pencereleri bir Set'e assign edip, ilk açtiğimiz
          pencere değilse ikinci açılan yeni penceredir mantığıyla bir loop için çözebiliriz
          */
         Set<String> pencereler = driver.getWindowHandles();
@@ -184,7 +184,7 @@ public class C01_WindowHandles extends TestBase {
         bekle(3);
 
         //  ikinci sayfa Title'ının "New Window" olduğunu test edin.
-            switchToWindow(1);
+            switchWindow2(1);
     /*
     Set ve ArrayList kullanmadan switchTo().window() methodu içine argüman olarak driver.getWindowHandles()
     methodunu ile bütün açılan pencereli bir array olarak alıp index belirterek isteğim pencereye geçiş yapabilirim.
@@ -200,16 +200,17 @@ public class C01_WindowHandles extends TestBase {
 
         bekle(2);
         //  ilk sayfaya dönün ve Title'ının "The Internet" olduğunu test edin.
-        switchToWindow(0);
+        switchToWindow1(0);
         String ilkSayfaActualTitle = driver.getTitle();
         String ilkSayfaExpectedTitle = "The Internet";
         Assert.assertEquals(ilkSayfaExpectedTitle, ilkSayfaActualTitle);
 
         //  ikinci sayfaya tekrar geçin.
-switchToWindow(1);
+switchToWindow1(1);
         bekle(2);
         //  ilk sayfaya tekrar dönün.
-        switchTowindow2(0);
+        switchToWindow1(0);
+
 
         bekle(2);
     }

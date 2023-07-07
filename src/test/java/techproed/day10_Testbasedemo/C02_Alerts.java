@@ -36,6 +36,7 @@ public class C02_Alerts extends TestBase {
         Assert.assertTrue(driver.findElement(By.xpath("//*[@id='result']")).isDisplayed());
 
 
+
     }
 
     @Test
@@ -68,10 +69,10 @@ public class C02_Alerts extends TestBase {
         //tıklayın ve result mesajında isminizin görüntülendiğini doğrulayın.
         driver.findElement(By.xpath("(//button)[3]")).click();
         bekle(3);
-        driver.switchTo().alert().sendKeys("BAHO");
+        driver.switchTo().alert().sendKeys("Yunus");
         bekle(2);
         driver.switchTo().alert().accept();
         bekle(2);
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='result']")).getText().contains("BAHO"));
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='result']")).getText().contains("Yunus"));
     }
 }

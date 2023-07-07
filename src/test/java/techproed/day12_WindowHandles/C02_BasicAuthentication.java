@@ -32,8 +32,7 @@ public class C02_BasicAuthentication extends TestBase {
 
         //DDM' den Java secelim
         WebElement ddm = driver.findElement(By.xpath("//select"));
-        //Select select = new Select(ddm);
-        //select.selectByVisibleText("Java");
+        //Select select = new Select(ddm); --> DropDown menu obje olusumu
 
         selectVisibleText(ddm,"Java");//--> method ıle yapılmıs hali
 

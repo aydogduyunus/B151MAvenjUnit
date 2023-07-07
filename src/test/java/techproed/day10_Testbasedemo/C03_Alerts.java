@@ -51,7 +51,7 @@ public class C03_Alerts extends TestBase {
         driver.findElement(By.xpath("(//*[@type='button'])[5]")).click();
         bekle(3);
         //Cikan alert'e isminizi giriniz.
-        sendKeysAlert("Baho Baba");
+        sendKeysAlert("Yunus Baba");
         bekle(2);
         acceptAlert();
         //ismi girdiğimizi doğrulayalım.

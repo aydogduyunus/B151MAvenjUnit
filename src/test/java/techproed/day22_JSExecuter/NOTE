@@ -1,0 +1,6 @@
+EGER HTML KODLARINDA SCRIPT ATTRIBUTU VARSA O HTML KODLAR JS ILE YAZILMISTIR. BU DURUMDA
+JSEXECUTER ILE ISLEM YAPMALYIZ
+
+arama kutusunun HTML kodlari arasinda value attribute vardir. Bu HTML kodlarinin son kelimesidir.
+Value degerine QA yazdirmis oluyoruz.
+Arguments[0] ise origin'i temsil etmektedir.
